@@ -28,6 +28,10 @@ Voir quand intégrer la séance Git
 
 * site Web : 
   [http://jrabatel.github.io/ProgWeb-CoteServeur](http://jrabatel.github.io/ProgWeb-CoteServeur)
+* adapté depuis le [cours de Romain Lebreton](https://github.com/romainlebreton/ProgWeb-CoteServeur)
+
+**Intervenant**
+* Julien Rabatel -- *jrabatel@gmail.com*
 
 </section>
 <section>
@@ -48,6 +52,15 @@ Voir quand intégrer la séance Git
 1. 13/03/2019 --  [TD 7 -- Cookies & Sessions](tutorials/tutorial7.html)
 1. 20/03/2019 --  Travail sur le projet
 1. 27/03/2019 --  Soutenances (présentation des projets)
+
+</section>
+<section>
+## Les projets
+
+* Développer un site de **covoiturage** (chaque TD donne les clés pour faire une partie du site)
+* A faire en binôme
+* **Attention** : vous garderez le même binôme pendant les séances pour pouvoir avancer sur le projet en fin de TD
+* Dernière séance : présentation du projet par binôme (barême et instructions en construction)
 
 </section>
 <section>
