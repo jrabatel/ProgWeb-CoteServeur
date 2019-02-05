@@ -178,76 +178,76 @@ fichiers OU de façon équivalente avec une URL en `file://` comme :
 
 </div>
 
-### Notre premier dépôt Git
+<!-- ### Notre premier dépôt Git -->
 
-Comme nous vous l'avons déjà dit, ce cours de PHP va être l'occasion d'apprendre
-le gestionnaire de version Git. Nous allons débuter en récupérant un *dépôt
-Git*, c'est-à-dire un dossier dans lequel la chronologie de toutes modifications
-pourront être enregistrées.
+<!-- Comme nous vous l'avons déjà dit, ce cours de PHP va être l'occasion d'apprendre -->
+<!-- le gestionnaire de version Git. Nous allons débuter en récupérant un *dépôt -->
+<!-- Git*, c'est-à-dire un dossier dans lequel la chronologie de toutes modifications -->
+<!-- pourront être enregistrées. -->
 
-<div class="exercise">
+<!-- <div class="exercise"> -->
 
-1. Pour transformer une fois pour toute notre répertoire PHP en dépôt Git,
-   **exécutez** la commande `git init` dans le terminal en étant dans le dossier `PHP`.
+<!-- 1. Pour transformer une fois pour toute notre répertoire PHP en dépôt Git, -->
+   <!-- **exécutez** la commande `git init` dans le terminal en étant dans le dossier `PHP`. -->
    
-1. Nous allons configurer Git pour qu'il connaisse votre nom et votre adresse
-   email, ce qui sera utile quand vous travaillerez en groupe pour savoir qui a
-   enregistré quelle modification :
+<!-- 1. Nous allons configurer Git pour qu'il connaisse votre nom et votre adresse -->
+   <!-- email, ce qui sera utile quand vous travaillerez en groupe pour savoir qui a -->
+   <!-- enregistré quelle modification : -->
 
-   ```bash
-   git config --global user.name "Votre Prénom et Nom"
-   git config --global user.email "votre@email"
-   ```
+   <!-- ```bash -->
+   <!-- git config --global user.name "Votre Prénom et Nom" -->
+   <!-- git config --global user.email "votre@email" -->
+   <!-- ``` -->
    
-   Aussi pour nous simplifier la vie plus tard, veuillez exécuter la commande
-   suivante. Cela change l'éditeur de texte qu'ouvre Git par défaut.
+   <!-- Aussi pour nous simplifier la vie plus tard, veuillez exécuter la commande -->
+   <!-- suivante. Cela change l'éditeur de texte qu'ouvre Git par défaut. -->
    
-   ```shell
-   git config --global core.editor "subl -n -w"
-   ```
-   
-1. Pour en savoir plus sur l'état de Git, **exécutez** la commande `git status`.
-   
-   La partie qui nous intéresse tout de suite est la suivante
-
-   ```
-   Fichiers non suivis:
-     (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
-   
-     TD1/
-   ```
-
-   Elle nous dit que le suivi des modifications n'est pas activé pour le dossier `TD1`.
-
-1. **Exécutez** la commande `git add TD1` pour suivre les modifications de tous
-   les fichiers dans le répertoire `TD1`.
-   
-    **Ré-exécutez** la commande `git status` pour voir le changement :
-   
-   ```
-   Modifications qui seront validées :
-     (utilisez "git rm --cached <fichier>..." pour désindexer)
-   
-   	nouveau fichier : TD1/echo.php
-   ```
-
-1. Git a vu des modifications dans le fichier `TD1/echo.php` mais il reste
-   encore à les enregistrer. Pour ceci, **exécutez** la commande `git commit` et
-   écrivez un petit message de validation pour s'y retrouver plus tard (avant
-   les lignes commentées avec `#`), puis fermez l'éditeur.
-   
-   <!-- **Note :** Vous voulez changer l'éditeur qui s'ouvre pour écrire vos fichiers de -->
-   <!-- commit ?  Pour utiliser SublimeText, exécutez la commande suivante : -->
-
-
    <!-- ```shell -->
    <!-- git config --global core.editor "subl -n -w" -->
    <!-- ``` -->
    
-1. Une dernière exécution de `git status` nous renseigne que nous avons bien
-   tout validé.
+<!-- 1. Pour en savoir plus sur l'état de Git, **exécutez** la commande `git status`. -->
+   
+   <!-- La partie qui nous intéresse tout de suite est la suivante -->
 
-</div>
+   <!-- ``` -->
+   <!-- Fichiers non suivis: -->
+     <!-- (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé) -->
+   
+     <!-- TD1/ -->
+   <!-- ``` -->
+
+   <!-- Elle nous dit que le suivi des modifications n'est pas activé pour le dossier `TD1`. -->
+
+<!-- 1. **Exécutez** la commande `git add TD1` pour suivre les modifications de tous -->
+   <!-- les fichiers dans le répertoire `TD1`. -->
+   
+    <!-- **Ré-exécutez** la commande `git status` pour voir le changement : -->
+   
+   <!-- ``` -->
+   <!-- Modifications qui seront validées : -->
+     <!-- (utilisez "git rm --cached <fichier>..." pour désindexer) -->
+   
+       <!-- nouveau fichier : TD1/echo.php -->
+   <!-- ``` -->
+
+<!-- 1. Git a vu des modifications dans le fichier `TD1/echo.php` mais il reste -->
+   <!-- encore à les enregistrer. Pour ceci, **exécutez** la commande `git commit` et -->
+   <!-- écrivez un petit message de validation pour s'y retrouver plus tard (avant -->
+   <!-- les lignes commentées avec `#`), puis fermez l'éditeur. -->
+   
+   <!-- [> **Note :** Vous voulez changer l'éditeur qui s'ouvre pour écrire vos fichiers de <] -->
+   <!-- [> commit ?  Pour utiliser SublimeText, exécutez la commande suivante : <] -->
+
+
+   <!-- [> ```shell <] -->
+   <!-- [> git config --global core.editor "subl -n -w" <] -->
+   <!-- [> ``` <] -->
+   
+<!-- 1. Une dernière exécution de `git status` nous renseigne que nous avons bien -->
+   <!-- tout validé. -->
+
+<!-- </div> -->
 
 ## Les bases de PHP
 
@@ -485,16 +485,6 @@ Les tableaux en PHP peuvent aussi s'indexer par des entiers ou des chaînes de c
    * Rajoutez un cas par défaut qui affiche "Il n'y a aucune voiture." si la
      liste est vide.  
      (On vous laisse chercher sur internet la fonction qui teste si un tableau est vide)
-
-5. Enregistrez votre travail dans Git :
-
-   1. Faites `git status` pour connaître l'état du dépôt Git.
-   1. Faites `git add TD1/echo.php` pour lui dire d'enregistrer les
-   modifications dans `echo.php`.
-   1. Faites `git commit` pour valider l'enregistrement des modifications et
-      écrivez un petit message de validation (comme e.g. *"TD1 Exo4 Affichage de
-      variables"*).
-   1. Finissez par `git status` pour voir que tout s'est bien passé.
    
 </div>
 
@@ -563,9 +553,6 @@ version 5. Plutôt que d'utiliser un tableau, créons une classe pour nos voitur
    Web `webinfo` à partir de `Voiture.php` ne doit pas afficher d'erreur.  
    **Demandez donc** votre page à `webinfo`
    [http://webinfo.iutmontp.univ-montp2.fr/~mon_login/PHP/TD1/Voiture.php](http://webinfo.iutmontp.univ-montp2.fr/~mon_login/PHP/TD1/Voiture.php)
-
-6. Enregistrez votre travail à l'aide de `git add` et `git commit`. Aidez-vous toujours
-   de `git status` pour savoir où vous en êtes.
 
 </div>
 
@@ -638,10 +625,6 @@ version 5. Plutôt que d'utiliser un tableau, créons une classe pour nos voitur
    **Comment sont transmises les informations ?**  
    **Comment s'appelle la partie de l'URL contenant les informations ?**
 
-5. Prenez l'habitude d'enregistrer régulièrement votre travail sous Git. Vous
-   pouvez utiliser la commande `git log` pour voir l'ensemble de vos
-   enregistrements passés.
-
 </div>
 <div class="exercise">
 
@@ -668,16 +651,10 @@ version 5. Plutôt que d'utiliser un tableau, créons une classe pour nos voitur
    [cours 1](({{site.baseurl}}/classes/class1.html))) de par où passe
    l'information envoyée par un formulaire de méthode POST ;
    1. Changez `creerVoiture.php` pour récupérer l'information envoyée par le formulaire ;
-   1. Essayez de
-   [**retrouver l'information envoyée par le formulaire**]({{site.baseurl}}/classes/class1.html#coutons-le-rseau)
-   avec les outils de développement (Onglet Réseau).
+   <!-- 1. Essayez de -->
+   <!-- [**retrouver l'information envoyée par le formulaire**]({{site.baseurl}}/classes/class1.html#coutons-le-rseau) -->
+   <!-- avec les outils de développement (Onglet Réseau). -->
 
-4. Avez-vous pensé à enregistrer vos modifications sous Git ? Faites le
-   notamment en fin de TD pour retrouver plus facilement où vous en êtes la
-   prochaine fois.  
-   **Note :** Vous pouvez faire `git diff` à tout moment pour voir les
-   modifications que vous avez faites depuis la dernière validation (`commit`).
-   <!-- On voit toutes les modifications sauf celles en cours d'enregistrement avec `git add` -->
 </div>
    
 ## Les bases d'un site de covoiturage

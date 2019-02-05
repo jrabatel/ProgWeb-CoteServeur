@@ -10,6 +10,7 @@ Voir quand intégrer la séance Git
 
 # Programmation Web - Côté Serveur
 Cours à l'IUT de Montpellier - Année Spéciale
+Intervenant : Julien Rabatel (jrabatel@gmail.com)
 
 **Mots clés :** PHP, MVC, MySQL
 

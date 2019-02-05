@@ -28,46 +28,27 @@ Voir quand intégrer la séance Git
 **Cours et TP en ligne :**
 
 * site Web : 
-  [http://romainlebreton.github.io/ProgWeb-CoteServeur](http://romainlebreton.github.io/ProgWeb-CoteServeur)
-
-**Évaluation :**
-
-* examen final : ~40%
-* projet PHP : ~60%
-* pas de partiel
+  [http://jrabatel.github.io/ProgWeb-CoteServeur](http://jrabatel.github.io/ProgWeb-CoteServeur)
 
 </section>
 <section>
+## Présentation du cours
 
-## Emploi du temps prévisionnel
+**Organisation du cours:**
 
-* 3 Septembre -- Cours Introductif
+### Cours
 
-**1er bloc de TPs -- Bases de PHP :**
+1. 06/02/2019 -- [Cours -- Introduction à PHP](classes/class1.html)
 
-* 3  Septembre 2018 – TP 1 – Introduction aux objets en PHP
-* 10 Septembre 2018 – TP 2 – La persistance des données en PHP
-* 17 Septembre 2018 – TP 3 – Requêtes préparées et association de classes
-* 24 Septembre 2018 – TP 4 – Architecture MVC simple
-* 1 Octobre   2018 –   ?  – Introduction à Git
-* 8 Octobre   2018 – TP 5 – Architecture MVC avancée 1/2
-* 15 Octobre   2018 – TP 6 – Architecture MVC avancée 2/2
+### TDs
 
-**2ème bloc de TPs -- Mise en application sur le projet + TPs complémentaires :**
-
-* 22 Octobre   2018 - **Début projet**
-* 29 Octobre   2018 - **Congé IUT**
-* 5  Novembre  2018 - 3h projet
-* 12 Novembre  2018 – TP 7 – Cookies & Sessions + 1h projet
-* 19 Novembre  2018 – TP 8 – Authentification & Validation par email + 1h projet
-* 26 Novembre  2018 - 3h projet
-* 3  Décembre  2018 - 3h projet
-* 10 Décembre  2018 - **soutenances du projet**
-
-<!-- Peut-être cours un peu plus long que 1h -->
-
-<!-- Introduction à Git/GitLab utile pour le travail collaboratif  -->
-<!-- pour vos projets (PHP, S3, ...). -->
+1. 06/02/2019 -- [TD 1 -- Introduction aux objets en PHP](tutorials/tutorial1.html)
+1. 13/02/2019 -- [TD 2 -- La persistance des données en PHP](tutorials/tutorial2.html)
+1. 20/02/2019 -- [TD 3 -- Requêtes préparées et association de classes](tutorials/tutorial3.html)
+1. 27/02/2019 --  [TD 4 -- Architecture MVC simple](tutorials/tutorial4.html)
+1. 13/03/2019 --  [TD 7 -- Cookies & Sessions](tutorials/tutorial7.html)
+1. 20/03/2019 --  Travail sur le projet
+1. 27/03/2019 --  Soutenances (présentation des projets)
 
 </section>
 <section>
@@ -179,28 +160,28 @@ d'adresse, cela envoie une requête HTTP.
 </div>
 
 </section>
-<section>
+<!-- <section> -->
 
-## Écoutons le réseau
+<!-- ## Écoutons le réseau -->
 
-<!-- Ouvrir http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html dans le
-navigateur en expliquant la requête et réponse -->
+<!-- <!-- Ouvrir http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html dans le -->
+<!-- navigateur en expliquant la requête et réponse --> -->
 
-Ouvrons
-[http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html](http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html)
-en écoutant le réseau à l'aide des outils de développement (`F12` ou Menu Outils/Outils de développement puis onglet Réseau).
+<!-- Ouvrons -->
+<!-- [http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html](http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html) -->
+<!-- en écoutant le réseau à l'aide des outils de développement (`F12` ou Menu Outils/Outils de développement puis onglet Réseau). -->
 
-<!--
-Ouvrir Réseau, recharger la page,
-view source des Request Headers puis
-view source des Response Headers puis
-Response
--->
+<!-- <!-- -->
+<!-- Ouvrir Réseau, recharger la page, -->
+<!-- view source des Request Headers puis -->
+<!-- view source des Response Headers puis -->
+<!-- Response -->
+<!-- --> -->
 
-<!-- Nous verrons l'autre type courant (POST) de requêtes HTTP lors de l'envoi de -->
-<!-- formulaires en méthode POST.  -->
+<!-- [> Nous verrons l'autre type courant (POST) de requêtes HTTP lors de l'envoi de <] -->
+<!-- [> formulaires en méthode POST.  <] -->
 
-</section>
+<!-- </section> -->
 <section>
 
 ## Qu'est-ce qu'un serveur HTTP ? 
@@ -220,8 +201,7 @@ Il est souvent associé au port 80 de la machine hôte.
 <br>
 
 **En pratique** lors des TDs, nous utiliserons le serveur **HTTP** Apache de
-  l'IUT (`webinfo`) et nous vous ferons installer des serveurs HTTP sur vos
-  ordinateurs portables.
+  l'IUT (`webinfo`).
 
 <!-- La pratique du serveur avec public_html, PB file://, installation chez eux -->
 
@@ -269,7 +249,7 @@ dossier `public_html` du répertoire personnel de `rletud`.
   Sites réalisés uniquement à l'aide de HTML/CSS.  
   Ils fonctionnent très bien mais leur contenu ne change pas en fonction du client.  
   Les sites statiques sont donc bien adaptés pour réaliser des sites « vitrine»
-  (e.g. projet HTML/CSS 1ère année).
+  (e.g. page d'accueil de ce cours).
 
 <p style="text-align:center">
 ![Requête HTTP]({{site.baseurl}}/assets/RequeteHTTP.png)
@@ -284,8 +264,7 @@ dossier `public_html` du répertoire personnel de `rletud`.
   La plupart des sites Web que vous visitez sont dynamiques.
 
 **Fonctionnalités typiques de sites dynamiques :**  
-un espace membres, un forum, un compteur de visiteurs, des actualités, une
-newsletter
+un espace membres, un forum, un compteur de visiteurs, une newsletter
 
 </section>
 <section>
@@ -409,6 +388,8 @@ PHP se démarque de ses concurrents par une importante communauté qui peut vous
 aider. C'est un langage facile à utiliser, idéal pour les débutants comme pour
 les professionnels (Wikipédia, Yahoo et Facebook).
 
+[Statistiques](https://w3techs.com/technologies/overview/programming_language/all)
+
 <p style="text-align:center">
 <img src="{{site.baseurl}}/assets/ServerSideProgLang.png" alt="Popularité des langages côté serveur">  
 Popularité des langages côté serveur
@@ -437,7 +418,7 @@ document en sortie.
 
 <br>
 
-**Remarque :** PHP peut en générer tout type de document, pas nécessairement du
+**Remarque :** PHP peut générer tout type de document, pas nécessairement du
   HTML.
 
 
@@ -642,8 +623,8 @@ Ce sont les **tableaux associatifs**
 <div class="incremental">
 <div>
 Les pages Web se transmettent des données entre elles.  
-Par exemple, votre nom/prénom, le fait que vous soyez connectés, vos réponses
-aux formulaires d'inscription.
+Par exemple, le fait que vous soyez connectés, vos réponses
+aux formulaires d'inscription, ...
 
 Sans données supplémentaires, on n'aurait pas de pages personnalisées et on
 serait ramenés aux sites statiques.
@@ -823,7 +804,7 @@ avant de lancer le script `bonjour.php`.
 
 ## Les formulaires GET
 
-Considérons le formulaire suivant et supposons que l'utilisateur ai tapé `MaDonnee`
+Considérons le formulaire suivant et supposons que l'utilisateur ait tapé `MaDonnee`
 
 <div style="display:flex;align-items:center">
 <div style="flex-grow:1;">
@@ -1016,17 +997,17 @@ Elles servent aussi à demander des pages Web. Les principales différences sont
 
 <br>
 
-<div style="display:flex;align-items:center">
-<div style="flex-grow:1;">
-**Démonstration avec l'outil *Réseaux* :**
-</div>
-<div style="flex-grow:1;text-align:center">
-<form method="post" action="http://webinfo.iutmontp.univ-montp2.fr/~rletud/traitePost.php" style="display:inline">
-<input type="text" name="nom_var" value="MaDonnee">
-<input type="submit">
-</form>
-</div>
-</div>
+<!-- <div style="display:flex;align-items:center"> -->
+<!-- <div style="flex-grow:1;"> -->
+<!-- **Démonstration avec l'outil *Réseaux* :** -->
+<!-- </div> -->
+<!-- <div style="flex-grow:1;text-align:center"> -->
+<!-- <form method="post" action="http://webinfo.iutmontp.univ-montp2.fr/~rletud/traitePost.php" style="display:inline"> -->
+<!-- <input type="text" name="nom_var" value="MaDonnee"> -->
+<!-- <input type="submit"> -->
+<!-- </form> -->
+<!-- </div> -->
+<!-- </div> -->
 
 </section>
 <section>
@@ -1114,50 +1095,50 @@ if - for imbriqués html
 * [Documentation officielle de PHP](http://php.net/manual/fr/)
 
 </section>
-<section>
+<!-- <section> -->
 
-## Bonus : Émuler un client HTTP textuel
+<!-- ## Bonus : Émuler un client HTTP textuel -->
 
-**Expérience amusante :**  
-Même si le client HTTP le plus connu est votre navigateur, il est facile de
-simuler un client HTTP autrement. La commande `telnet` permet d'envoyer du texte à
-une machine distance. En envoyant le texte d'une requête HTTP à un serveur HTTP,
-celui nous envoie sa réponse HTTP normalement.
+<!-- **Expérience amusante :**   -->
+<!-- Même si le client HTTP le plus connu est votre navigateur, il est facile de -->
+<!-- simuler un client HTTP autrement. La commande `telnet` permet d'envoyer du texte à -->
+<!-- une machine distance. En envoyant le texte d'une requête HTTP à un serveur HTTP, -->
+<!-- celui nous envoie sa réponse HTTP normalement. -->
 
-**Exemple :**  
+<!-- **Exemple :**   -->
 
-```http
-> telnet webinfo.iutmontp.univ-montp2.fr 80
-GET /~rletud/ HTTP/1.1
-Host: webinfo.iutmontp.univ-montp2.fr
+<!-- ```http -->
+<!-- > telnet webinfo.iutmontp.univ-montp2.fr 80 -->
+<!-- GET /~rletud/ HTTP/1.1 -->
+<!-- Host: webinfo.iutmontp.univ-montp2.fr -->
 
-```
+<!-- ``` -->
 
-nous répond
+<!-- nous répond -->
 
-```http
-HTTP/1.1 200 OK
-Date: Tue, 08 Sep 2015 20:24:04 GMT
-Server: Apache/2.2.14 (Ubuntu)
-Last-Modified: Tue, 08 Sep 2015 20:05:38 GMT
-Accept-Ranges: bytes
-Content-Length: 225
-Content-Type: text/html
+<!-- ```http -->
+<!-- HTTP/1.1 200 OK -->
+<!-- Date: Tue, 08 Sep 2015 20:24:04 GMT -->
+<!-- Server: Apache/2.2.14 (Ubuntu) -->
+<!-- Last-Modified: Tue, 08 Sep 2015 20:05:38 GMT -->
+<!-- Accept-Ranges: bytes -->
+<!-- Content-Length: 225 -->
+<!-- Content-Type: text/html -->
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title> Insérer le titrer ici </title>
-  </head>
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+  <!-- <head> -->
+    <!-- <meta charset="utf-8" /> -->
+    <!-- <title> Insérer le titrer ici </title> -->
+  <!-- </head> -->
 
-  <body>
-    Un problème avec les accents à é è ?
-    <!-- ceci est un commentaire -->
-  </body>
-</html>
-```
+  <!-- <body> -->
+    <!-- Un problème avec les accents à é è ? -->
+    <!-- [> ceci est un commentaire <] -->
+  <!-- </body> -->
+<!-- </html> -->
+<!-- ``` -->
 
-Faites de même avec la requête POST précédente.
+<!-- Faites de même avec la requête POST précédente. -->
 
-</section>
+<!-- </section> -->
