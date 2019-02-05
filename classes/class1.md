@@ -16,7 +16,6 @@ Voir quand intégrer la séance Git
 
 * Apprendre à faire des pages dynamiques avec PHP et MySQL
 * Organiser son code avec l'architecture MVC
-* Introduction au gestionnaire de version Git & au gestionnaire GitLab
 
 <!-- **4 intervenants :** -->
 
@@ -567,6 +566,41 @@ en remplaçant `loginIUT` par votre login.
 
 </div>
 </div>
+
+</section>
+<section>
+
+## Les tableaux en PHP
+
+En PHP un tableau peut être créé avec la fonction **array()** :
+  ```php?start_inline=1
+  $tableau = array("1er élément", 102, "blabla", 4.2);
+  ```
+**NB :** En `PHP` les noms de variables commencent par `$`
+
+Comme en Java, on peut accéder aux éléments par leur index :
+
+  ```php?start_inline=1
+  echo $tableau[0];
+  // affiche "1er élément"
+  echo $tableau[1];
+  // affiche "102"
+  ```
+  
+Contrairement à Java, un tableau peut contenir des éléments de types différents (chaîne de caractères, entiers, etc.)
+
+<br>
+
+* Notez l'existence des boucles
+  [`foreach`](http://php.net/manual/fr/control-structures.foreach.php) pour
+  parcourir ces tableaux :
+
+  ```php?start_inline=1
+  foreach ($tableau as $valeur){
+      //commandes
+  }
+  ```
+{:.incremental}
 
 </section>
 <section>
