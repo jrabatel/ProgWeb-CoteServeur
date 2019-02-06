@@ -57,7 +57,7 @@ Voir quand intégrer la séance Git
 <section>
 ## Les projets
 
-* Développer un site de **covoiturage** (chaque TD donne les clés pour faire une partie du site)
+* Développer un site de **covoiturage** (chaque TD donne les prérequis pour faire une partie du site)
 * A faire en binôme
 * **Attention** : vous garderez le même binôme pendant les séances pour pouvoir avancer sur le projet en fin de TD
 * Dernière séance : présentation du projet par binôme (barême et instructions en construction)
@@ -172,34 +172,11 @@ d'adresse, cela envoie une requête HTTP.
 </div>
 
 </section>
-<!-- <section> -->
-
-<!-- ## Écoutons le réseau -->
-
-<!-- <!-- Ouvrir http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html dans le -->
-<!-- navigateur en expliquant la requête et réponse --> -->
-
-<!-- Ouvrons -->
-<!-- [http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html](http://webinfo.iutmontp.univ-montp2.fr/~rletud/index.html) -->
-<!-- en écoutant le réseau à l'aide des outils de développement (`F12` ou Menu Outils/Outils de développement puis onglet Réseau). -->
-
-<!-- <!-- -->
-<!-- Ouvrir Réseau, recharger la page, -->
-<!-- view source des Request Headers puis -->
-<!-- view source des Response Headers puis -->
-<!-- Response -->
-<!-- --> -->
-
-<!-- [> Nous verrons l'autre type courant (POST) de requêtes HTTP lors de l'envoi de <] -->
-<!-- [> formulaires en méthode POST.  <] -->
-
-<!-- </section> -->
 <section>
 
 ## Qu'est-ce qu'un serveur HTTP ? 
 
 Un *serveur* **HTTP** est un logiciel qui répond à des requêtes HTTP.  
-Il est souvent associé au port 80 de la machine hôte.
 
 <br>
 
@@ -314,35 +291,6 @@ un espace membres, un forum, un compteur de visiteurs, une newsletter
 </p>
 
 </section>
-<!-- <section> -->
-
-<!-- ## Où intervient le PHP ? -->
-
-<!-- Un module PHP (mod_php5) est intégré au serveur HTTP Apache. -->
-
-<!-- Quand le serveur Web reçoit une requête d'un fichier .php, il génère -->
-<!-- dynamiquement la page Web en exécutant le code PHP de la page. -->
-
-<!-- La page généré est ensuite renvoyée dans la réponse HTTP. -->
-
-<!-- **C'est ce que l'on appelle une page dynamique.** -->
-
-<!--
- La création du document advient au moment de la requête
- Le serveur peut
- o Compiler le document à la volée (comme dans la génération statique),
- o Interagir avec d’autres serveurs (authentification, API, …),
- o Interroger des bases de données.
--->
-
-<!-- <br> -->
-
-<!--  <p style="text-align:center"> -->
-<!--  ![Rôle du PHP]({{site.baseurl}}/assets/RolePHP.png) -->
-<!--  </p> -->
-
-
-<!-- </section> -->
 <section>
 
 ## Le langage de création de page Web : PHP
@@ -640,8 +588,6 @@ Ce sont les **tableaux associatifs**
   $coordonnees['nom'] = 'Assin';
   ```
 
-  **NB :** En `PHP` les variables commencent par `$`
-
 * Ou l'initialiser en une fois
 
   ```php?start_inline=1
@@ -736,24 +682,6 @@ Une *URL* (Uniform Resource Locator) sert à représenter une adresse sur le Web
 [Wikipedia](https://fr.wikipedia.org/wiki/Uniform_Resource_Locator)
 </p>
 
-<!--
-Percent-Encoding : on encode sous la forme "%" HEXDIG HEXDIG les caractères
-problématiques, genre non ASCII, délimiteurs ...
-
-Voir PHP : urlencode
--->
-
-<!--
-Attention, en HTML le & est encodé &amp; car il sert à déclarer le début
-d'entité spéciales (e.g. &amp; &nbsp; ...).
-Ceci est aussi valable pour les valeurs d'attributs HTML, donc les liens !
-Si vous ne le faites pas, le code ne passera pas la validation W3C.
-
-Ref:
-http://mrcoles.com/blog/how-use-amersands-html-encode/
-https://www.w3.org/TR/xhtml1/guidelines.html#C_12
--->
-
 </section>
 <section>
 
@@ -834,19 +762,6 @@ $_GET["prenom"] = "Marc";
 avant de lancer le script `bonjour.php`.
 
 </section>
-<!-- <section> -->
-
-<!-- ## 2 - Les formulaires -->
-
-<!-- <br> -->
-
-<!-- On va voir qu'il y a deux types de formulaires : -->
-
-<!-- * ceux dont les données sont envoyées avec la **méthode GET** -->
-
-<!-- * ceux dont les données sont envoyées avec la **méthode POST** -->
-
-<!-- </section> -->
 <section>
 
 ## Les formulaires GET
@@ -932,12 +847,6 @@ PREVOIR UNE DEMO AVEC LES OUTILS RESEAUX
 
 ## Les formulaires POST
 
-<!-- Un formulaire en méthode **POST** envoie ses informations différemment : -->
-
-<!-- <p style="text-align:center"> -->
-<!-- elles **ne sont plus** encodées dans le *query string*. -->
-<!-- </p> -->
-
 <div style="display:flex;align-items:center">
 <div style="flex-grow:1;">
 ```html
@@ -986,30 +895,6 @@ PREVOIR UNE DEMO AVEC LES OUTILS RESEAUX
    ```
 
 </section>
-<!-- <section> -->
-
-<!-- ## Les formulaires POST 2/3 -->
-
-<!-- <br> -->
-<!-- <br> -->
-
-<!-- Plus précisément, avec un formulaire en `method="post"` : -->
-
-<!-- 1. la page chargée va être `traitePost.php` **sans *query string* ;** -->
-
-<!-- 2. les données du formulaire sont envoyées dans le **corps** d'une requête -->
-<!--    **HTTP** de type **POST** (*cf.* prochain slide) ; -->
-
-<!-- 3. On récupère les données dans le tableau PHP `$_POST`.   -->
-<!--    Dans notre exemple, PHP fait l'affectation -->
-
-<!--    ```php?start_inline=1 -->
-<!--    $_POST["nom_var"] = "valeur" -->
-<!--    ``` -->
-   
-<!--    juste avant d'exécuter la page PHP `traitePost.php`. -->
-
-<!-- </section> -->
 <section>
 
 ## Les requêtes HTTP de type POST
@@ -1042,20 +927,6 @@ Elles servent aussi à demander des pages Web. Les principales différences sont
 
 3. Le corps de la requête **HTTP** sert ici à envoyer les informations.
 
-<br>
-
-<!-- <div style="display:flex;align-items:center"> -->
-<!-- <div style="flex-grow:1;"> -->
-<!-- **Démonstration avec l'outil *Réseaux* :** -->
-<!-- </div> -->
-<!-- <div style="flex-grow:1;text-align:center"> -->
-<!-- <form method="post" action="http://webinfo.iutmontp.univ-montp2.fr/~rletud/traitePost.php" style="display:inline"> -->
-<!-- <input type="text" name="nom_var" value="MaDonnee"> -->
-<!-- <input type="submit"> -->
-<!-- </form> -->
-<!-- </div> -->
-<!-- </div> -->
-
 </section>
 <section>
 
@@ -1079,16 +950,6 @@ Elles servent aussi à demander des pages Web. Les principales différences sont
 
   * **Attention :**  
   ces informations **ne sont pas vraiment cachées** pour autant.
-
-<!--
-Note sur ù met-on le dollar 
-
-$objet->attribut
-$tableau[$index]
-Classe::$attribut_static
-
--->
-
 
 <!--
 %%%
@@ -1142,50 +1003,3 @@ if - for imbriqués html
 * [Documentation officielle de PHP](http://php.net/manual/fr/)
 
 </section>
-<!-- <section> -->
-
-<!-- ## Bonus : Émuler un client HTTP textuel -->
-
-<!-- **Expérience amusante :**   -->
-<!-- Même si le client HTTP le plus connu est votre navigateur, il est facile de -->
-<!-- simuler un client HTTP autrement. La commande `telnet` permet d'envoyer du texte à -->
-<!-- une machine distance. En envoyant le texte d'une requête HTTP à un serveur HTTP, -->
-<!-- celui nous envoie sa réponse HTTP normalement. -->
-
-<!-- **Exemple :**   -->
-
-<!-- ```http -->
-<!-- > telnet webinfo.iutmontp.univ-montp2.fr 80 -->
-<!-- GET /~rletud/ HTTP/1.1 -->
-<!-- Host: webinfo.iutmontp.univ-montp2.fr -->
-
-<!-- ``` -->
-
-<!-- nous répond -->
-
-<!-- ```http -->
-<!-- HTTP/1.1 200 OK -->
-<!-- Date: Tue, 08 Sep 2015 20:24:04 GMT -->
-<!-- Server: Apache/2.2.14 (Ubuntu) -->
-<!-- Last-Modified: Tue, 08 Sep 2015 20:05:38 GMT -->
-<!-- Accept-Ranges: bytes -->
-<!-- Content-Length: 225 -->
-<!-- Content-Type: text/html -->
-
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-  <!-- <head> -->
-    <!-- <meta charset="utf-8" /> -->
-    <!-- <title> Insérer le titrer ici </title> -->
-  <!-- </head> -->
-
-  <!-- <body> -->
-    <!-- Un problème avec les accents à é è ? -->
-    <!-- [> ceci est un commentaire <] -->
-  <!-- </body> -->
-<!-- </html> -->
-<!-- ``` -->
-
-<!-- Faites de même avec la requête POST précédente. -->
-
-<!-- </section> -->
