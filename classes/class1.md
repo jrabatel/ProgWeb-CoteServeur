@@ -49,7 +49,7 @@ Voir quand intégrer la séance Git
 1. 13/02/2019 -- [TD 2 -- La persistance des données en PHP](tutorials/tutorial2.html)
 1. 20/02/2019 -- [TD 3 -- Requêtes préparées et association de classes](tutorials/tutorial3.html)
 1. 27/02/2019 --  [TD 4 -- Architecture MVC simple](tutorials/tutorial4.html)
-1. 13/03/2019 --  [TD 7 -- Cookies & Sessions](tutorials/tutorial7.html)
+1. 13/03/2019 --  [TD 5 -- Cookies & Sessions](tutorials/tutorial7.html)
 1. 20/03/2019 --  Travail sur le projet
 1. 27/03/2019 --  Soutenances (présentation des projets)
 
@@ -58,8 +58,11 @@ Voir quand intégrer la séance Git
 ## Les projets
 
 * Développer un site de **covoiturage** (chaque TD donne les prérequis pour faire une partie du site)
+
 * A faire en binôme
+
 * **Attention** : vous garderez le même binôme pendant les séances pour pouvoir avancer sur le projet en fin de TD
+
 * Dernière séance : présentation du projet par binôme (barême et instructions en construction)
 
 </section>
@@ -68,8 +71,10 @@ Voir quand intégrer la séance Git
 ## Plan du cours
 
 1. Le fonctionnement du World Wide Web
-2. Pages Web dynamiques avec PHP
-3. Transmettre des données à une page Web
+
+3. Pages Web dynamiques avec PHP
+
+5. Transmettre des données à une page Web
 
 </section>
 <section>
@@ -373,7 +378,7 @@ Popularité des langages côté serveur
 
 * Il prend donc en entrée un fichier `.php` qui contient de l'HTML et du PHP
 * Il ressort un document HTML pur.
-* Pour cela, il exécute les instructions PHP qui lui indique comment générer le
+* Pour cela, il exécute les instructions PHP qui lui indiquent comment générer le
 document en sortie.
 
 <br>
@@ -411,10 +416,6 @@ Hello World
 
 * L'instruction `echo` a pour effet d'insérer du texte dans le document en sortie
 
-<br>
-<br>
-
-**Démonstration avec la ligne de commande `php`**
 
 
 </section>
