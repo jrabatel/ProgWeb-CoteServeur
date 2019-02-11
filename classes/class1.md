@@ -45,11 +45,11 @@ Voir quand intégrer la séance Git
 
 ### TDs
 
-1. 06/02/2019 -- [TD 1 -- Introduction aux objets en PHP](tutorials/tutorial1.html)
-1. 13/02/2019 -- [TD 2 -- La persistance des données en PHP](tutorials/tutorial2.html)
-1. 20/02/2019 -- [TD 3 -- Requêtes préparées et association de classes](tutorials/tutorial3.html)
-1. 27/02/2019 --  [TD 4 -- Architecture MVC simple](tutorials/tutorial4.html)
-1. 13/03/2019 --  [TD 5 -- Cookies & Sessions](tutorials/tutorial7.html)
+1. 06/02/2019 -- [TD 1 -- Introduction aux objets en PHP](../tutorials/tutorial1.html)
+1. 13/02/2019 -- [TD 2 -- La persistance des données en PHP](../tutorials/tutorial2.html)
+1. 20/02/2019 -- [TD 3 -- Requêtes préparées et association de classes](../tutorials/tutorial3.html)
+1. 27/02/2019 --  [TD 4 -- Architecture MVC simple](../tutorials/tutorial4.html)
+1. 13/03/2019 --  [TD 5 -- Cookies & Sessions](../tutorials/tutorial7.html)
 1. 20/03/2019 --  Travail sur le projet
 1. 27/03/2019 --  Soutenances (présentation des projets)
 
