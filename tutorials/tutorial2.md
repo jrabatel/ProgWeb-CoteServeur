@@ -100,8 +100,7 @@ serveur du reste du code PHP.
    **Notes :**
 
    * Où doit-on enregistrer une page Web ? (Souvenez-vous du TD précédent)
-   * Qu'est-ce qu'un attribut ou une méthode **statique** ? (Cours de Programmation
-   Orientée Objet de l'an dernier ; voir aussi [les compléments]({{site.baseurl}}/assets/tut2-complement.html#les-attributs-et-méthodes-static))
+   * Qu'est-ce qu'un attribut ou une méthode **statique** ? (voir cours de Programmation Orientée Objet ou [les compléments]({{site.baseurl}}/assets/tut2-complement.html#les-attributs-et-méthodes-static)) pour plus de détails sur le fonctionnement des attributs statiques en PHP
 
    ```php
    <?php
@@ -164,59 +163,6 @@ s'appellent avec `->` en PHP.
 
 </div>
 
-<div class="exercise">
-
-Continuons à prendre la bonne habitude d'enregistrer régulièrement notre travail
-avec Git. La semaine dernière nous avons appris les commandes suivantes
-
-```shell
-# Pour savoir l'état de Git, c-à-d ce qui est enregistré ou non
-git status
-# Pour sélectionner des fichiers à enregistrer
-git add nom_du_fichier
-# Pour effectuer l'enregistrement
-git commit
-```
-
-1. Si vous ne l'avez pas fait la semaine dernière, configurez Git pour qu’il
-   connaisse votre nom et votre adresse email
-   
-   ```shell
-   git config --global user.name "Votre Prénom et Nom"
-   git config --global user.email "votre@email"
-   ```
-
-   De même, si vous voulez changer l'éditeur de texte qu'ouvre Git par défaut
-   
-   ```shell
-   git config --global core.editor "subl -n -w"
-   ```
-
-1. Pour voir l'historique de vos commits, **exécutez**
-
-   ```shell
-   git log
-   ```
-   
-   Vous verrez une suite de commit affichés comme ceci
-   
-   ```
-commit a0cf8dba8cfe5ffb08500cb3a77ec6889a34b37f (HEAD -> master)
-Author: Romain Lebreton <romain.lebreton@lirmm.fr>
-Date:   Fri Sep 7 17:56:42 2018 +0200
-
-    Mon message de commit
-   ```
-
-   Le numéro `a0cf8db...` est l'identifiant unique de votre commit.  Vous pouvez
-   avoir de l'aide sur les commandes de `git log` en tapant `h` ou quitter en
-   tapant `q`.
-   
-1. Enregistrez votre travail à l'aide de `git add` et `git commit`. Nous
-   comptons sur vous pour penser à faire cet enregistrement régulièrement.
-
-</div>
-
 ### Initialiser un objet `PDO`
 
 Pour se connecter à une base de données en PHP on utilise une classe fournie
@@ -276,61 +222,11 @@ de donnée.
       ?>
       ```
 
-
-</div>
-<br>
-Nous allons maintenant améliorer la gestion des erreurs de `PDO`.
-
-
-<div class="exercise">
-
-2. Lorsqu'une erreur se produit, `PDO` lève une exception qu'il faut donc
-récupérer et traiter. Placez donc votre `new PDO(...)` au sein d'un try - catch
-:
-
-   ```php?start_inline=1
-   try{
-     ... 
-   } catch(PDOException $e) {
-     echo $e->getMessage(); // affiche un message d'erreur
-     die();
-   }
-   ```
-   
-   Vous remarquerez que la syntaxe des exceptions en PHP est très semblable à celle
-   de Java.
-   
-   **Remarque :** Dans cet exemple, la gestion est très brutale: En effet,
-   l'instruction `die();` équivaut à un système `System.exit(1);` en Java.  
-   Dans un vrai site web "en production" il faudrait indiquer à l'utilisateur
-   qu'il a fait une erreur de saisie ou que le site est actuellement
-   indisponible, ceci en fonction du détail de l'exception qui est levée.  
-   Il est important que toutes lignes de codes utilisant `PDO` soit dans un `try` -
-   `catch` afin de capturer les exceptions.
-
-4. Pour avoir plus de messages d'erreur de `PDO` et qu'il gère mieux l'UTF-8,
-  **mettez à jour** la connexion dans `Model` avec
-
-   ```php?start_inline=1
-   // Connexion à la base de données            
-   // Le dernier argument sert à ce que toutes les chaines de caractères 
-   // en entrée et sortie de MySql soit dans le codage UTF-8
-   self::$pdo = new PDO("mysql:host=$hostname;dbname=$database_name", $login, $password,
-                        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-   
-   // On active le mode d'affichage des erreurs, et le lancement d'exception en cas d'erreur
-   self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   ```
-
 **Question :** Avez-vous compris pourquoi il est préférable que la connexion à la BDD
   (stockée dans `Model::$pdo`) soit un attribut statique ?
 
-<!-- Réponse : Pour s'assurer de ne créer la connexion à la BDD qu'une fois. En
-effet, un attribut statique est associé à la classe, donc il ne peut y avoir
-qu'un Model::$pdo -->
-
 </div>
-
+<br>
 ## Opérations sur la base de données
 
 Voyons maintenant comment les objets `PDO` servent à effectuer des requêtes
@@ -354,7 +250,7 @@ la classe `PDO`
    Le choix du format se fait avec la
    [variable `$fetch_style`](http://php.net/manual/fr/pdostatement.fetch.php#refsect1-pdostatement.fetch-parameters). Les formats les plus communs sont :
 
-   * `PDO::FETCH_ASSOC` : Chaque entrée SQL est un tableau indexé par les noms
+   * `PDO::FETCH_ASSOC` : Chaque entrée SQL est un tableau associatif (voir TD précédent) indexé par les noms
      des champs de la table de la BDD ;
 
    * `PDO::FETCH_OBJ` : Chaque entrée SQL est un objet dont les noms d'attributs
@@ -412,11 +308,9 @@ voitures. Servez-vous d'une boucle
 [`foreach`](http://php.net/manual/fr/control-structures.foreach.php) comme au TD
 précédent pour itérer sur le tableau `$tab_obj`.
 
-1. Avez-vous pensé à enregistrer régulièrement votre travail sous Git ?
-
 </div>
 <br>
-Ce code fonctionne mais ne crée pas d'objets de la classe `Voiture` sur
+Ce code fonctionne mais ne crée pas d'objets de la classe `Voiture` du TD précédent, sur
 lesquelles l'on pourrait appeler des méthodes (par exemple `afficher`).
 
 <div class="exercise">
@@ -482,6 +376,55 @@ Nous allons maintenant isoler le code qui retourne toutes les voitures et en fai
 </div>
 
 ### Gestion des erreurs (suite)
+
+Nous allons maintenant améliorer la gestion des erreurs de `PDO`.
+
+<div class="exercise">
+
+2. Lorsqu'une erreur se produit, `PDO` lève une exception qu'il faut donc
+récupérer et traiter. Placez donc votre `new PDO(...)` au sein d'un try - catch
+:
+
+   ```php?start_inline=1
+   try{
+     ... 
+   } catch(PDOException $e) {
+     echo $e->getMessage(); // affiche un message d'erreur
+     die();
+   }
+   ```
+   
+   Vous remarquerez que la syntaxe des exceptions en PHP est très semblable à celle
+   de Java.
+   
+   **Remarque :** Dans cet exemple, la gestion est très brutale: En effet,
+   l'instruction `die();` équivaut à un système `System.exit(1);` en Java.  
+   Dans un vrai site web "en production" il faudrait indiquer à l'utilisateur
+   qu'il a fait une erreur de saisie ou que le site est actuellement
+   indisponible, ceci en fonction du détail de l'exception qui est levée.  
+   Il est important que toutes lignes de codes utilisant `PDO` soit dans un `try` -
+   `catch` afin de capturer les exceptions.
+
+4. Pour avoir plus de messages d'erreur de `PDO` et qu'il gère mieux l'UTF-8,
+  **mettez à jour** la connexion dans `Model` avec
+
+   ```php?start_inline=1
+   // Connexion à la base de données            
+   // Le dernier argument sert à ce que toutes les chaines de caractères 
+   // en entrée et sortie de MySql soit dans le codage UTF-8
+   self::$pdo = new PDO("mysql:host=$hostname;dbname=$database_name", $login, $password,
+                        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+   
+   // On active le mode d'affichage des erreurs, et le lancement d'exception en cas d'erreur
+   self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   ```
+
+<!-- Réponse : Pour s'assurer de ne créer la connexion à la BDD qu'une fois. En
+effet, un attribut statique est associé à la classe, donc il ne peut y avoir
+qu'un Model::$pdo -->
+
+</div>
+
 
 Dans un site en production, pour des raisons de sécurité et de confort
 d'utilisation, il est déconseillé d'afficher directement un message d'erreur. Pour
