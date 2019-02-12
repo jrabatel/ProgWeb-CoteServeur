@@ -375,7 +375,7 @@ Nous allons maintenant isoler le code qui retourne toutes les voitures et en fai
 
 </div>
 
-### Gestion des erreurs (suite)
+### Gestion des erreurs
 
 Nous allons maintenant améliorer la gestion des erreurs de `PDO`.
 
@@ -465,8 +465,6 @@ try {
   die();
 }
 ```
-   
-N'oubliez pas d'enregistrer votre travail sous Git, surtout en fin de séance.
 
 </div>
 
