@@ -6,7 +6,7 @@ layout: tutorial
 
 <!-- Afficher après la requête préparée la requête qui a vraiment été faite pour
 voir l'échappement des caractères spéciaux dans SQL
-Voir aussi si on arrive à enregitrer des noms comme D'alembert-ignac dans la BDD
+Voir aussi si on arrive à enregistrer des noms comme D'alembert-ignac dans la BDD
 -->
 
 <!-- Expliquer comment les requêtes préparées empêchent les injections SQL -->
@@ -34,10 +34,6 @@ plusieurs tables de la BDD.
   [la section 2.1 du TD précédent](tutorial2.html#faire-une-requête-sql-sans-paramètres),
   qui vous faisait coder votre première requête `SELECT * FROM voiture`, pour
   attaquer ce TD.
-
-Nous vous invitons toujours à utiliser les différentes commandes
-`status/log/add/commit` de `git` pour savoir où vous en êtes et enregistrer vos
-modifications.
 
 ## Les injections SQL
 
@@ -152,9 +148,6 @@ d'utiliser systématiquement la syntaxe avec un tableau `execute($values)`.
 
 1. Copiez la fonction précédente dans la classe `Voiture` en la déclarant
    publique et statique.
-
-   **Rappel :** Utilisez **NetBeans** comme éditeur de pages Web
-     ([tutoriel NetBeans]({{site.baseurl}}/assets/tut2-complement.html#créer-un-projet-avec-netbeans)).
 
 1. Testez la fonction `getVoitureByImmat` dans `lireVoiture.php`.
 
