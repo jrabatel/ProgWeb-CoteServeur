@@ -373,7 +373,11 @@ pouvez vous rafraîchir la mémoire en lisant
    
    **Indices :**
    
-   * Utiliser une requête à base d'`INNER JOIN`: `SELECT login, nom, prenom FROM utilisateur INNER JOIN passager ON utilisateur.login = passager.utilisateur_login WHERE passager.trajet_id = :trajet_id`.
+   * Utiliser une requête à base d'`INNER JOIN`:
+   ```sql
+   SELECT login, nom, prenom FROM utilisateur INNER JOIN passager ON utilisateur.login = passager.utilisateur_login WHERE passager.trajet_id = :trajet_id
+   ```
+
    * Si ce n'est pas déjà fait, il faut peut-être mettre à jour la classe `Utilisateur` pour qu'elle ait les
    mêmes attributs que la table `utilisateur` de la BDD. Il faut aussi mettre à
    jour le constructeur comme
