@@ -341,14 +341,6 @@ est mise à jour.
 3. À l'aide de l'interface de PhpMyAdmin, insérer quelques associations pour que
 la table `passager` ne soit pas vide.
 
-4. Vous allez maintenant vous assurer de la bonne gestion des clés étrangères en
-testant le comportement `ON DELETE CASCADE`.  Pour cela :
-   1. créez un trajet correspondant à un certain conducteur,
-   1. puis inscrivez des passagers pour ce trajet
-   1. supprimez ensuite le conducteur en question de la table `utilisateur` et
-      vérifiez que les lignes de la table `passager` précédemment insérées ont
-      bien été supprimées elles aussi.
-
 </div>
 
 ### Au niveau du PHP
@@ -381,10 +373,8 @@ pouvez vous rafraîchir la mémoire en lisant
    
    **Indices :**
    
-   * Utiliser une requête à base d'`INNER JOIN`. Une bonne stratégie
-   pour développer la bonne requête est d'essayer des requêtes dans l'onglet SQL de
-   PhpMyAdmin jusqu'à tenir la bonne.
-   * Il faut peut-être mettre à jour la classe `Utilisateur` pour qu'elle ait les
+   * Utiliser une requête à base d'`INNER JOIN`: `SELECT login, nom, prenom FROM utilisateur INNER JOIN passager ON utilisateur.login = passager.utilisateur_login WHERE passager.trajet_id = :trajet_id`.
+   * Si ce n'est pas déjà fait, il faut peut-être mettre à jour la classe `Utilisateur` pour qu'elle ait les
    mêmes attributs que la table `utilisateur` de la BDD. Il faut aussi mettre à
    jour le constructeur comme
    [on l'a fait pour `Voiture`](tutorial2.html#majconst).
@@ -396,50 +386,7 @@ pouvez vous rafraîchir la mémoire en lisant
       existant,
    4. affiche les utilisateurs renvoyés grâce à la fonction `afficher`.
 
-3. Créez un formulaire `formFindUtil.php` de méthode `GET` avec un champ texte
-où l'on rentrera l'identifiant d'un trajet. La page de traitement de ce
-formulaire sera `testFindUtil.php`. Modifiez `testFindUtil.php` pour qu'il
-récupère l'identifiant envoyé par le formulaire.
-
 </div>
-
-## Créez une injection SQL
-
-Si vous êtes en avance sur les TDs, nous vous proposons de créer un exemple
-d'injection SQL. Mettons en place notre attaque SQL :
-
-1. Pour ne pas supprimer une table importante, créons un table `voiture2` qui ne craint rien :
-    * allez dans PHPMyAdmin et cliquez sur votre base de donnée (celle dont le
-     nom est votre login à l'IUT)
-   * Dans l'onglet SQL `Importer`, donnez le fichier
-     [`voiture2.sql`]({{site.baseurl}}/assets/TD3/voiture2.sql) qui créera une table
-     `voiture2` avec quelques voitures
- 1. Nous vous fournissons le fichier PHP que nous allons attaquer :
-[`formGetImmatSQL.php`]({{site.baseurl}}/assets/TD3/formGetImmatSQL.php)  
-Ce fichier contient un formulaire qui affiche les informations d'une voiture
-étant donnée son immatriculation.  
-**Testez** ce fichier en donnant une immatriculation existante.  
-**Lisez** le code pour être sûr de bien comprendre le fonctionnement de cette
-  page (et demandez au professeur si vous ne comprennez pas tout !).
-
-1. Le point clé de ce fichier est que la fonction `getVoitureByImmat` a été
-   codée sans requête préparée et est vulnérable aux injections SQL.
-   
-   ```php?start_inline=1
-   function getVoitureByImmat($immat) {
-       $sql = "SELECT * from voiture2 WHERE immatriculation='$immat'"; 
-       $rep = Model::$pdo->query($sql);
-       $rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
-       return $rep->fetch();
-   }
-   ```
-
-   **Trouvez** ce qu'il faut taper dans le formulaire pour que
-     `getVoitureByImmat` vide la table `voiture2` (SQL Truncate).
-
-<!--
-'; TRUNCATE voiture2; --
--->
 
 ### Un cas concret
 
@@ -490,6 +437,44 @@ désinscrire l'utilisateur `utilisateur_login` du trajet `trajet_id`.
    formulaire redirige sur `testDelPassager.php` qui supprimera le passager dans
    la BDD.
 
+</div>
+
+<div class="exercise">
+Si vous êtes en avance sur les TDs, nous vous proposons de créer un exemple
+d'injection SQL. Mettons en place notre attaque SQL :
+
+1. Pour ne pas supprimer une table importante, créons un table `voiture2` qui ne craint rien :
+* allez dans PHPMyAdmin et cliquez sur votre base de donnée (celle dont le
+        nom est votre login à l'IUT)
+* Dans l'onglet SQL `Importer`, donnez le fichier
+[`voiture2.sql`]({{site.baseurl}}/assets/TD3/voiture2.sql) qui créera une table
+`voiture2` avec quelques voitures
+1. Nous vous fournissons le fichier PHP que nous allons attaquer :
+[`formGetImmatSQL.php`]({{site.baseurl}}/assets/TD3/formGetImmatSQL.php)  
+    Ce fichier contient un formulaire qui affiche les informations d'une voiture
+    étant donnée son immatriculation.  
+    **Testez** ce fichier en donnant une immatriculation existante.  
+    **Lisez** le code pour être sûr de bien comprendre le fonctionnement de cette
+    page (et demandez au professeur si vous ne comprennez pas tout !).
+
+    1. Le point clé de ce fichier est que la fonction `getVoitureByImmat` a été
+    codée sans requête préparée et est vulnérable aux injections SQL.
+
+    ```php?start_inline=1
+    function getVoitureByImmat($immat) {
+        $sql = "SELECT * from voiture2 WHERE immatriculation='$immat'"; 
+        $rep = Model::$pdo->query($sql);
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
+        return $rep->fetch();
+    }
+```
+
+**Trouvez** ce qu'il faut taper dans le formulaire pour que
+`getVoitureByImmat` vide la table `voiture2` (SQL Truncate).
+
+<!--
+'; TRUNCATE voiture2; --
+-->
 </div>
 
 
