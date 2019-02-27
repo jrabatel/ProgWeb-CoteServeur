@@ -1,5 +1,5 @@
 ---
-tite: TD4 &ndash; Cookies & sessions
+title: TD4 &ndash; Cookies & sessions
 subtitle: Panier et préférences
 layout: tutorial
 ---
