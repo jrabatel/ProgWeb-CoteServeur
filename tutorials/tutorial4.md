@@ -1,5 +1,5 @@
 ---
-title: TD4 &ndash; Architecture MVC
+title: TD5 &ndash; Architecture MVC
 subtitle: Modèle, Vue, Contrôleur
 layout: tutorial
 ---
@@ -107,7 +107,7 @@ lors des TDs précédents (sauf la fonction `afficher()`).
    objets de `ModelVoiture`.
 1. Déplacez vos fichiers `ModelVoiture.php` et `Model.php` dans le répertoire `model/`.
 1. Déplacez `Conf.php` dans le dossier `config`.
-1. Corrigez le chemin relatif de l'`include` du fichier `Conf.php` dans `Model.php`.
+1. Corrigez le chemin relatif du `require_once` du fichier `Conf.php` dans `Model.php`.
 </div>
 
 **N.B. :** Il est vraiment conseillé de renommer les fichiers et non de les
@@ -130,7 +130,7 @@ leur classe (et non pas des objets instanciés). D'où la syntaxe différente
 
 ### V: la vue
 
-Dans la vue sont regroupés toutes les lignes de code qui génèrent la page HTML
+Dans la vue sont regroupées toutes les lignes de code qui génèrent la page HTML
 que l'on va envoyer à l'utilisateur. Les vues sont des fichiers qui ne
 contiennent quasiment exclusivement que du code HTML, à l'exception de quelques
 `echo` permettant d'afficher les variables pré-remplies par le contrôleur. Une
@@ -279,7 +279,7 @@ ControllerVoiture::readAll(); // Appel de la méthode statique $action de Contro
 #### Maintenant un vrai routeur
 
 Le code précédent marche sauf que le client doit pouvoir choisir quelle action
-est-ce qu'il veut effectuer. Du coup, il va faire une requête pour la page
+il veut effectuer. Du coup, il va faire une requête pour la page
 `routeur.php` mais en envoyant l'information qu'il veut que `action` soit égal à
 `readAll`. Pour transmettre ces données à la page du routeur, nous allons les
 écrire dans l'URL avec la syntaxe du *query string* (cf.  [**rappel** sur query
@@ -363,11 +363,6 @@ l'URL.
 3. Rajoutez des liens cliquables `<a>` sur les immatriculations de la vue `list.php`
    qui renvoient sur la vue de détail de la voiture concernée.
 
-4. On souhaite gérer les immatriculations non reconnues: Créez un vue
-   `./view/voiture/error.php` qui affiche un message d'erreur et renvoyez vers
-   cette vue si `getVoitureByImmat()` ne trouve pas de voiture qui correspond à
-   cette immatriculation.
-
 </div>
 
 ### Vue "ajout d'une voiture"
@@ -426,12 +421,12 @@ dans la BDD.
 
 ## Et si le temps le permet...
 
+
 <div class="exercise">
-
-Dessinez sur un bout de papier un schéma qui explique comment le contrôleur (le
-routeur et la partie Voiture), le modèle et la vue interagissent pour créer la
-page qui correspond par exemple à l'action `read`.
-
+On souhaite gérer les immatriculations non reconnues: Créez un vue
+`./view/voiture/error.php` qui affiche un message d'erreur et renvoyez vers
+cette vue si `getVoitureByImmat()` ne trouve pas de voiture qui correspond à
+cette immatriculation.
 </div>
 
 <div class="exercise">

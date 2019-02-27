@@ -1,5 +1,5 @@
 ---
-title: TD7 &ndash; Cookies & sessions
+tite: TD4 &ndash; Cookies & sessions
 subtitle: Panier et préférences
 layout: tutorial
 ---
@@ -64,7 +64,7 @@ elles sont stockées à la vue de tous chez le client !
  
 ### Déposer un cookie
 
-Les cookies sont des informations stockées sur l'ordinateur du client à
+Les cookies sont des informations stockées sur l'ordinateur du client (par le navigateur) à
 l'initiative du serveur.
 
 #### Comment déposer un cookie en PHP ?
@@ -372,34 +372,6 @@ aux données qui lui sont associées.
 	sessions soit conservé disons 30 minutes, même en cas de fermeture du
 	navigateur.
 
-1. **Comment rajouter un timeout sur les sessions :**
-
-	La durée de vie d'une session est liée à deux paramètres. D'une part, le
-	délai d'expiration du cookie permet d'effacer l'identifiant unique côté
-	client (sans garantie). D'autre part, une variable de PHP permet de définir
-	un délai d'expiration aux fichiers de session (`session.gc_maxlifetime`) qui
-	dira que le fichier **peut** être supprimé à partir d'un certain
-	délai. Cependant, aucune de ces techniques n'offre de réelle garantie de
-	suppression de la session après le délai imparti.
-
-	La seule manière sûre de bien gérer la durée de vie d'une session est de
-	stocker la date de dernière activité dans la session :
-	
-    ```php?start_inline=1
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > (30*60))) {
-        // if last request was more than 30 minutes ago
-        session_unset();     // unset $_SESSION variable for the run-time 
-        session_destroy();   // destroy session data in storage
-    } else {
-        $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-    }
-    ```
-
-	Nous recommandons de mettre un délai d'expiration correspondant au
-    `session.cookie_lifetime` (si celui-ci est non nul).
-    
-    **Référence :** [Stackoverflow](http://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes)
-
 <!--
 Note technique :
 
@@ -445,86 +417,6 @@ fonctionnalités suivantes :
 1. Lire une variable de session,
 1. Supprimer une variable de session,
 1. Supprimer complètement une session
-
-</div>
-
-## Mise en application sur le site de covoiturage
-
-Dans le site de covoiturage, vous avez mis en place une redirection dans la page
-`index.php` vers l'action `viewAll` du contrôleur `voiture`. Dans cet exercice,
-nous allons permettre à chaque visiteur du site de configurer sur quelle page
-il souhaite arriver par défaut lorsqu'il visite le site web.
-
-**Note importante :** Cet exercice nécessite d'avoir codé plusieurs contrôleurs
-au TD précédent. Si ce n'est pas le cas, changez l'exercice pour personnaliser
-la vue par défaut `readAll` plutôt que le contrôleur.
-
-<div class="exercise">
-
-1. Créer un formulaire `preference.html` avec un champ `preference` de type
-   *bouton radio* permettant de choisir `voiture`, `trajet` ou `utilisateur` comme
-   page d'accueil et qui appelle le script `personalisation.php`.
-
-4. Écrire le script `personalisation.php` qui récupère la valeur `preference` du
-   formulaire et dépose sa valeur dans un cookie en utilisant le même nom de
-   variable.
-
-5. Verifier que ce cookie a bien été déposé (*cf.* les outils de développement
-   expliqués dans la section "Notes techniques").
-
-2. Dans votre menu, qui doit se trouver dans l'en-tête commune de chaque page,
-   ajouter un lien qui pointe vers le formulaire `preference.html`.
-
-3. Dans `routeur.php`, la valeur par défaut actuelle du contrôleur est
-   `voiture`. Changeons cela pour tenir compte de l'information stockée dans le
-   cookie :
-
-   1. créez avant le choix du contrôleur une variable `$controller_default`
-      initialisée à `voiture`,
-   1. changez la valeur par défaut du contrôleur de `voiture` vers
-      `$controller_default`,
-   1. Au niveau de l'initialisation de `$controller_default`, vérifiez
-      l'existence d'un cookie, et la présence dans ce cookie de la variable
-      `preference`. Si elle est renseignée, modifiez le contenu de la variable
-      `$controller_default` avec cette valeur.
-
-5. Testez le bon fonctionnement de cette personalisation de la page d'acceuil en
-choisissant autre chose que `voiture` dans le formulaire.
-
-**Note :** Bien sûr, nous aurions dû intégrer les pages `preference.html` et
-  `personalisation.php` dans notre MVC pour avoir un site propre. Elles feraient
-  partie du MVC `Utilisateur` (que nous créerons dans le prochain TD).
-
-</div>
-
-
-<div class="exercise">
-
-Dans votre site de projet, utilisez les cookies pour stocker le panier actuel du
-visiteur.
-
-</div>
-
-
-<div class="exercise">
-
-Nous souhaitons rajouter dans le cookie l'information du prix du panier en plus
-du panier lui-même. Comme cette information est sensible et que nous ne voulons
-pas que l'utilisateur puisse modifier le prix total de son panier, nous allons
-la stocker avec des sessions.
-
-1. Mettez en place le mécanisme de session : démarrer la session dans
-   `index.php` pour que toutes les pages puissent l'utiliser et que le démarrage
-   intervienne avant que l'on écrive du HTML.
-
-1. Passez toute l'information du panier dans la session.
-
-1. Calculez le prix du panier à chaque appel de la page et inscrivez-le dans la
-   session.
-
-1. Faites en sorte que le panier s'efface de lui-même après un temps donné. Ce
-   délai sera d'abord de 10 secondes à des fins de test puis passez-le à 10 minutes
-   quand cela marche.
 
 </div>
 
