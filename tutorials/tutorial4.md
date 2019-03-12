@@ -419,8 +419,80 @@ dans la BDD.
 
 </div> 
 
-## Et si le temps le permet...
+## Utiliser PHP pour ajouter des éléments aux pages
 
+Que se passe-t-il maintenant si vous souhaitez ajouter une barre de navigation à chacune des pages de votre site ?
+
+Une manière de faire serait d'écrire le code HTML de cette barre de navigation, puis de copier-coller ce code sur chacune des pages. PHP vous permet de centraliser le code 
+
+<div class="exercise">
+Créez le dossier `view/general` qui contiendra les éléments qui seront partagés par plusieurs pages.
+Puis créez le fichier `navigation.php` dans ce dossier, qui contiendra le code suivant :
+
+```php
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/TD5/">Covoiturage</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/TD5/controller/routeur.php?action=readAll">Voitures</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+
+Ce code créée une barre de navigation qui peut maintenant facilement être incluse dans n'importe quelle vue de votre site avec le code suivant, par exemple juste sous l'ouverture de la balise `<body>` :
+```php
+    ...
+    <body>
+        <?php require "../view/general/navigation.php"; ?>
+        ...
+```
+</div>
+
+La barre de navigation créée ci-dessus n'est pas très jolie, en fait, il s'agit d'une simple liste. Pour améliorer son aspect visuel, nous allons intégrer la librairie [Bootstrap](https://getbootstrap.com/) à notre site en utilisant la même technique.
+
+<div class="exercise">
+Dans le dossier `view/general` créée un fichier `inclusions.php`, qui contiendra le code suivant :
+```php
+<!-- Librairie Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Librairie Bootstrap et dépendances JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+```
+
+Dans ce code, les fichiers CSS et JavaScript nécessaires à Bootstrap sont appelés. Pour les ajouter à une de vos pages, il suffit alors d'inclure le fichier `inclusion.php`, à l'intérieur de la balise `<head>` :
+```php
+	...
+	<?php //require_once "../view/general/inclusions.php"; ?>
+</head>
+...
+```
+</div>
+
+## Redirection dans la page d'accueil
+Nous voulons faire en sorte que la page d'accueil de votre site redirige l'utilisateur vers la page qui liste les voitures enregistrées dans la base de données.
+
+Pour effectuer une redirection, il faut envoyer l'information dans l'entête de la page, en utilisant la fonction PHP `header()`.
+
+*Attention* : les entêtes HTTP doivent toujours être envoyées avant tout autre contenu, et donc avant tout code HTML. N'oubliez pas d'utiliser cette fonction en début de fichier !
+
+<div class="exercise">
+A la racine de votre TD, créez un fichier `index.php` qui servira de page d'accueil, et ajoutez-y le code suivant :
+```php
+<?php header('Location: controller/routeur.php?action=readAll'); ?>
+```
+Testez cette redirection en visitant cette page.
+</div>
+
+## Et si le temps le permet...
 
 <div class="exercise">
 On souhaite gérer les immatriculations non reconnues: Créez un vue
