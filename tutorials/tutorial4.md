@@ -423,7 +423,7 @@ dans la BDD.
 
 Que se passe-t-il maintenant si vous souhaitez ajouter une barre de navigation à chacune des pages de votre site ?
 
-Une manière de faire serait d'écrire le code HTML de cette barre de navigation, puis de copier-coller ce code sur chacune des pages. PHP vous permet de centraliser le code 
+Une manière de faire serait d'écrire le code HTML de cette barre de navigation, puis de copier-coller ce code sur chacune des pages. PHP vous permet de centraliser le code dans un fichier qui pourra ensuite être inclus dans les pages voulues.
 
 <div class="exercise">
 Créez le dossier `view/general` qui contiendra les éléments qui seront partagés par plusieurs pages.
@@ -445,6 +445,7 @@ Puis créez le fichier `navigation.php` dans ce dossier, qui contiendra le code 
   </div>
 </nav>
 ```
+*Remarque* : ce code crée des liens vers le dossier `TD5`, en supposant qu'il s'agisse du dossier racine dans lequel vous avez mis vos fichiers pour ce TD.
 
 Ce code créée une barre de navigation qui peut maintenant facilement être incluse dans n'importe quelle vue de votre site avec le code suivant, par exemple juste sous l'ouverture de la balise `<body>` :
 ```php
@@ -455,10 +456,12 @@ Ce code créée une barre de navigation qui peut maintenant facilement être inc
 ```
 </div>
 
-La barre de navigation créée ci-dessus n'est pas très jolie, en fait, il s'agit d'une simple liste. Pour améliorer son aspect visuel, nous allons intégrer la librairie [Bootstrap](https://getbootstrap.com/) à notre site en utilisant la même technique.
+La barre de navigation créée ci-dessus n'est pas très jolie, en fait, il s'agit d'une simple liste. Pour améliorer son aspect visuel, nous allons intégrer la librairie [Bootstrap](https://getbootstrap.com/) à notre site en utilisant la même méthode.
+
+Bootstrap est un framework CSS et JavaScript qui propose librement un grand nombre d'outils de design pour sites web. Il s'agit de la librairie la plus populaire de ce type, elle peut être très utile pour améliorer l'aspect visuel d'un site en peu de temps.
 
 <div class="exercise">
-Dans le dossier `view/general` créée un fichier `inclusions.php`, qui contiendra le code suivant :
+Dans le dossier `view/general` créez un fichier `inclusions.php`, qui contiendra le code suivant :
 ```php
 <!-- Librairie Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -468,10 +471,10 @@ Dans le dossier `view/general` créée un fichier `inclusions.php`, qui contiend
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 ```
 
-Dans ce code, les fichiers CSS et JavaScript nécessaires à Bootstrap sont appelés. Pour les ajouter à une de vos pages, il suffit alors d'inclure le fichier `inclusion.php`, à l'intérieur de la balise `<head>` :
+Dans ce code, on inclut les fichiers CSS et JavaScript nécessaires à Bootstrap. Pour les ajouter à une de vos pages, il suffit alors d'inclure le fichier `inclusion.php`, à l'intérieur de la balise `<head>` :
 ```php
 	...
-	<?php //require_once "../view/general/inclusions.php"; ?>
+	<?php require_once "../view/general/inclusions.php"; ?>
 </head>
 ...
 ```
