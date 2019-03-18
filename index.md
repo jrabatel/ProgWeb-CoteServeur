@@ -28,6 +28,14 @@ Intervenant : Julien Rabatel (jrabatel@gmail.com)
 1. 20/03/2019 --  Travail sur le projet
 1. 27/03/2019 --  Soutenances (présentation des projets)
 
+## TDs supplémentaires facultatifs (pour en savoir plus)
+*Attention* : les énoncés sont ceux de [Romain Lebreton](https://romainlebreton.github.io/ProgWeb-CoteServeur)
+et n'ont pas été adaptés pour l'Année Spéciale.
+
+1. [Architecture MVC avancée 1/2](tutorials/tutorial5.html)
+1. [Architecture MVC avancée 2/2](tutorials/tutorial6.html)
+1. [Authentification & validation par email](tutorials/tutorial8.html)
+
 ### Notes complémentaires
 
 1. [Encodage des caractères, serveur HTTP de l'IUT et note sur les URLs]({{site.baseurl}}/assets/tut1-complement.html)
