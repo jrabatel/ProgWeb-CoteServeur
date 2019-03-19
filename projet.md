@@ -27,7 +27,7 @@ de vos comptes. Les sources du site devront être accessible dans un fichier
 ### Où héberger ce site? Comment partager un répertoire ?
 
 Le site à rendre sera à héberger dans le répertoire de l'un des membres de votre groupe. 
-Par exemple [http://webinfo.iutmontp.univ-montp2.fr/~mon_login/eCommerce/](http://webinfo.iutmontp.univ-montp2.fr/~mon_login/covoiturage/)
+Par exemple [http://webinfo.iutmontp.univ-montp2.fr/~mon_login/covoiturage/](http://webinfo.iutmontp.univ-montp2.fr/~mon_login/covoiturage/)
 
 L'étudiant 1 doit donc créer le répertoire `covoiturage` dans son dossier `public_html`
 puis donner les droits aux autres étudiants de son groupe sur ce répertoire:
@@ -37,7 +37,7 @@ puis donner les droits aux autres étudiants de son groupe sur ce répertoire:
 * `setfacl -m u:loginetudiant2:x /home/ann2/loginetudiant1/public_html` (droit de
      lister le repertoire public_html)
 * `setfacl -R -m u:loginetudiant2:rwx covoiturage` (donne récursivement les droits
-à tout les fichiers inclus dans eCommerce)
+à tout les fichiers inclus dans covoiturage)
 * `setfacl -R -m d:u:loginetudiant2:rwx covoiturage` (défini des droits par
 défaut : les nouveaux fichiers créés prendront ces droits)
 
@@ -47,32 +47,36 @@ défaut : les nouveaux fichiers créés prendront ces droits)
 ## Critères de notation
 
 Le but pédagogique de ce projet est de mettre en application toutes les
-techniques que vous avez apprises lors des TDs. Voici donc les critères les plus importants :
+techniques que vous avez apprises lors des TDs.
+
+Voici donc les critères les plus importants :
 
 * Utilisation de l'architecture MVC pour l'ensemble des pages du site (voir TD5),
 * Chaque page doit contenir une barre de navigation, que vous remplirez avec des liens vers les pages principales du site (voir TD5),
 * Toutes les requêtes SQL contenant au moins un paramètre doivent être préparées (voir TD3),
-* La page à la racine du site (index.php), doit rediriger vers la *liste des trajets* (voir TD5).
+* La page à la racine du site (index.php), doit rediriger vers la **liste des trajets** (voir TD5).
 
 * Pages requises du site
 
-    * *Voitures*
+    * **Voitures**
         * Liste des voitures (chaque voiture a un lien vers sa page de détail),
         * Détail d'une voiture,
         * Page de création d'une voiture.
 
-    * *Trajets*
+    * **Trajets**
         * Liste des trajets (chaque trajet a un lien vers sa page de détail),
         * Détail d'une trajet : inclut notamment la liste des utilisateur du trajet (TD3).
 
 * *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC, c'est-à-dire passant par un routeur qui redirige l'utilisateur vers l'action d'un controleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
 Le routeur prendra, en plus du paramètre GET `action`, un paramètre GET `controller`. Le routeur pourra diriger l'utilisateur sur la bonne page avec le code `$controller::$action();`. *Attention* : ce code n'est pas sécurisé !
 
-* Tous les exercices facultatifs des TDs peuvent être ajoutés mais sont considérés comme secondaires, finissez avant tout les points précédents.
+* Tous les exercices optionnels des TDs peuvent être ajoutés mais sont considérés comme secondaires, finissez en priorité tous les points précédents !
 
 Il n'y a **pas** de rapport à écrire, ni de présentation à préparer. Vous devrez
 juste répondre à une série de questions sur votre code qui nous permettra
 d'évaluer ce qui a été implémenté.
+
+L'ordre de passage des groupes sera tiré aléatoirement.
 
 <!-- [Planning des soutenances]() -->
 
