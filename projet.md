@@ -47,10 +47,28 @@ défaut : les nouveaux fichiers créés prendront ces droits)
 ## Critères de notation
 
 Le but pédagogique de ce projet est de mettre en application toutes les
-techniques que vous avez apprises lors des TDs. Voici donc [les critères sur
-lesquels vous serez notés](https://docs.google.com/spreadsheets/d/1oUd7fe0K8WZhI2TPRRvgZ2xPZf5H22CUvlpcXEMD3Ao/edit#gid=0).
+techniques que vous avez apprises lors des TDs. Voici donc les critères les plus importants :
 
-* Utilision d'un cadre MVC pour l'ensemble des pages
+* Utilisation de l'architecture MVC pour l'ensemble des pages du site (voir TD5),
+* Chaque page doit contenir une barre de navigation, que vous remplirez avec des liens vers les pages principales du site (voir TD5),
+* Toutes les requêtes SQL contenant au moins un paramètre doivent être préparées (voir TD3),
+* La page à la racine du site (index.php), doit rediriger vers la *liste des trajets* (voir TD5).
+
+* Pages requises du site
+
+    * *Voitures*
+        * Liste des voitures (chaque voiture a un lien vers sa page de détail),
+        * Détail d'une voiture,
+        * Page de création d'une voiture.
+
+    * *Trajets*
+        * Liste des trajets (chaque trajet a un lien vers sa page de détail),
+        * Détail d'une trajet : inclut notamment la liste des utilisateur du trajet (TD3).
+
+* *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC, c'est-à-dire passant par un routeur qui redirige l'utilisateur vers l'action d'un controleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
+Le routeur prendra, en plus du paramètre GET `action`, un paramètre GET `controller`. Le routeur pourra diriger l'utilisateur sur la bonne page avec le code `$controller::$action();`. *Attention* : ce code n'est pas sécurisé !
+
+* Tous les exercices facultatifs des TDs peuvent être ajoutés mais sont considérés comme secondaires, finissez avant tout les points précédents.
 
 Il n'y a **pas** de rapport à écrire, ni de présentation à préparer. Vous devrez
 juste répondre à une série de questions sur votre code qui nous permettra
