@@ -56,19 +56,20 @@ Voici donc les critères les plus importants :
 * Utilisation de l'architecture MVC pour l'ensemble des pages du site (voir TD5, où la redirection se faisait vers la liste des voitures),
 * Chaque page doit contenir une barre de navigation, que vous remplirez avec des liens vers les pages principales du site (voir TD5),
 * Toutes les requêtes SQL contenant au moins un paramètre doivent être préparées (voir TD3),
-* La page à la racine du site (index.php), doit rediriger vers la **liste des trajets** (voir TD5).
+* La page à la racine du site (index.php), doit rediriger vers la **liste des trajets** (voir TD5, qui redirigeait vers la liste des voitures).
 
 * Pages requises du site :
 
     * **Voitures**
         * Liste des voitures (chaque voiture a un lien vers sa page de détail),
         * Détail d'une voiture,
-        * Page de création d'une voiture.
+        * Création d'une voiture.
 
 
     * **Trajets**
         * Liste des trajets (chaque trajet a un lien vers sa page de détail),
         * Détail d'une trajet : inclut notamment la liste des utilisateur du trajet (TD3).
+        * Création d'un trajet.
 
 * *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC comme pour le TD5, c'est-à-dire en utilisant un routeur qui redirige l'utilisateur vers l'action d'un contrôleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
 Le routeur prendra, en plus du paramètre GET `action`, un paramètre GET `controller`. Le routeur pourra diriger l'utilisateur sur la bonne page avec le code `$controller::$action();`. *Attention* : ce code n'est pas sécurisé !
@@ -80,11 +81,14 @@ Les fonctionnalités ci-dessous sont considérées comme secondaires, finissez e
     * *Utilisateurs*
         * Liste des utilisateurs (chaque utilisateur a un lien vers sa page de détail),
         * Détail d'un utilisateur (inclut notamment la liste des trajets d'un utilisateur, et la liste des trajets dont il est conducteur).
+        * Création d'un utilisateur.
 
-* Les exercices complémentaires des TDs en rapport avec le covoiturage (les exercices du type *Et si le temps vous le permet...*) sont considérés comme des exercices secondaires. Par exemple, désinscrire un utilisateur d'un trajet (TD3) rentre dans cette catégorie.
+* Ajouter quelques exemples de gestions d'exceptions.
+
+* Les exercices complémentaires des TDs en rapport avec le covoiturage (les exercices du type *Et si le temps le permet...*) sont considérés comme des exercices secondaires. Par exemple, désinscrire un utilisateur d'un trajet (TD3) rentre dans cette catégorie.
 
 ### Bonus
-Les TDs supplémentaires facultattifs (architecture MVC avancée, Authentification et validation par email) ne sont pas attendus dans le projet et seraient donc considérés comme du bonus.
+Les TDs supplémentaires facultatifs (architecture MVC avancée, Authentification et validation par email) ne sont pas attendus dans le projet et seront donc considérés comme du bonus.
 
 ### Modalités de présentation du projet
 Il n'y a **pas** de rapport à écrire, ni de présentation à préparer. Vous devrez
