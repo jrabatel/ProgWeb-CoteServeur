@@ -24,13 +24,14 @@ de vos comptes. Les sources du site devront être accessibles dans un fichier
 * Un site réaliste qui implémente `X` fois la même fonctionnalité. Le but est
   de réaliser correctement un maximum de fonctionnalités différentes.
 
-### Où héberger ce site? Comment partager un répertoire ?
+### Où héberger ce site ? Comment partager un répertoire ?
 
 Le site à rendre sera à héberger dans le répertoire de l'un des membres de votre groupe. 
 Par exemple [http://webinfo.iutmontp.univ-montp2.fr/~mon_login/covoiturage/](http://webinfo.iutmontp.univ-montp2.fr/~mon_login/covoiturage/)
+L'étudiant 1 doit donc créer le répertoire `covoiturage` dans son dossier `public_html`.
 
-L'étudiant 1 doit donc créer le répertoire `covoiturage` dans son dossier `public_html`
-puis donner les droits aux autres étudiants de son groupe sur ce répertoire:
+#### Partage du répertoire covoiturage avec les autres membres du groupe
+Si vous souhaitez permettre aux autre membres du groupe de travailler sur ce répertoire, donnez les droits aux autres étudiants (attention, ne perdez pas trop de temps à mettre cela en place) :
 
 * `setfacl -m u:loginetudiant2:x /home/ann2/loginetudiant1` (droit de
      lister le repertoire personnel)
@@ -52,7 +53,7 @@ techniques que vous avez apprises lors des TDs.
 Voici donc les critères les plus importants :
 
 ### Fonctionnalités prioritaires
-* Utilisation de l'architecture MVC pour l'ensemble des pages du site (voir TD5),
+* Utilisation de l'architecture MVC pour l'ensemble des pages du site (voir TD5, où la redirection se faisait vers la liste des voitures),
 * Chaque page doit contenir une barre de navigation, que vous remplirez avec des liens vers les pages principales du site (voir TD5),
 * Toutes les requêtes SQL contenant au moins un paramètre doivent être préparées (voir TD3),
 * La page à la racine du site (index.php), doit rediriger vers la **liste des trajets** (voir TD5).
@@ -69,7 +70,7 @@ Voici donc les critères les plus importants :
         * Liste des trajets (chaque trajet a un lien vers sa page de détail),
         * Détail d'une trajet : inclut notamment la liste des utilisateur du trajet (TD3).
 
-* *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC, c'est-à-dire passant par un routeur qui redirige l'utilisateur vers l'action d'un contrôleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
+* *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC comme pour le TD5, c'est-à-dire en utilisant un routeur qui redirige l'utilisateur vers l'action d'un contrôleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
 Le routeur prendra, en plus du paramètre GET `action`, un paramètre GET `controller`. Le routeur pourra diriger l'utilisateur sur la bonne page avec le code `$controller::$action();`. *Attention* : ce code n'est pas sécurisé !
 
 ### Fonctionnalités secondaires
@@ -79,77 +80,15 @@ Les fonctionnalités ci-dessous sont considérées comme secondaires, finissez e
     * *Utilisateurs*
         * Liste des utilisateurs (chaque utilisateur a un lien vers sa page de détail),
         * Détail d'un utilisateur (inclut notamment la liste des trajets d'un utilisateur, et la liste des trajets dont il est conducteur).
-f
-* Les exercices complémentaires des TDs en rapport avec le covoiturage (les exercices du type *Si le temps vous le permet...*) sont considérés comme des exercices secondaires. Par exemple, désinscrire un utilisateur d'un trajet (TD3) rentre dans cette catégorie.
+
+* Les exercices complémentaires des TDs en rapport avec le covoiturage (les exercices du type *Et si le temps vous le permet...*) sont considérés comme des exercices secondaires. Par exemple, désinscrire un utilisateur d'un trajet (TD3) rentre dans cette catégorie.
 
 ### Bonus
-Les TDs supplémentaires facultattifs (architecture MVC avancée, Authentification et validation par email) ne sont pas attendus pour ce projet et seraient donc considérés comme du bonus.
+Les TDs supplémentaires facultattifs (architecture MVC avancée, Authentification et validation par email) ne sont pas attendus dans le projet et seraient donc considérés comme du bonus.
 
-### Modalités
+### Modalités de présentation du projet
 Il n'y a **pas** de rapport à écrire, ni de présentation à préparer. Vous devrez
 juste répondre à une série de questions sur votre code qui permettra
 d'évaluer ce qui a été implémenté.
 
 L'ordre de passage des groupes sera tiré aléatoirement.
-
-<!-- [Planning des soutenances]() -->
-
-<!--
-### Front-Office 
-
-**Rappel:** le projet portant sur la programmation côté serveur, la partie de la note correspondante au design HTML/CSS est faible. 
-
-1. HTML / CSS valides et séparés
-3. Problème d’encodage: problème avec les accents dans les textes fixes ou issues de la BD.
-4. W3C (plus de 10 erreurs  / 1-2 erreurs / aucune erreur)
-5. Factorisation code (aucune / include header+footer / include content)
-
-Pourquoi les items suivants ?
-3. utilisation de `<div>` pour la mise en page
-2. CSS responsive
-
-
-### Gestion des formulaires Formulaire (de contacts ou autre)
-
-2. Vérification des données en HTML5 ou Javascript
-3. Vérification des données en PHP
-4. Re-Remplissage du formulaire en cas d'erreur de saisie.
-
-
-### Gestion des  utilisateurs
-
-1. mail confirmation pour l'inscription
-
-2. différents niveaux: admin/users
-
-### Gestion du panier 
-1. Cookie 
-
-### Back-office
-
-1. Utilisation des sessions: 
-2. Message bienvenue
-3. Sécurisation de quelques pages (manuellement)
-4. Sécurisation de toutes les pages (automatisé via le controleur)
-
-### CRUD
-
-Produits:
-Ajout / Suppression  / Modification
-
-Relations annexes nécesitant une jointure (genre accesoires):
-Ajout / Suppression  / Modification
-
-### MVC 
-
-1. Vues liste / liste paginée / détail 
-
-2. Critères visant à évaluer la qualité de votre MVC: (to be completed)
-
-Aucun code HTML hors des vues
-
-Aucun SQL hors du modèle 
-
-### Qualité de la démonstration 
-
--->
