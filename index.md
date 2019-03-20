@@ -25,7 +25,7 @@ Intervenant : Julien Rabatel (jrabatel@gmail.com)
 1. 20/02/2019 -- [TD 3 -- Requêtes préparées et association de classes](tutorials/tutorial3.html)
 1. 27/02/2019 --  [TD 4 -- Cookies & Sessions](tutorials/tutorial7.html)
 1. 13/03/2019 --  [TD 5 -- Architecture MVC simple](tutorials/tutorial4.html)
-1. 20/03/2019 --  Travail sur le projet
+1. 20/03/2019 --  [Travail sur le projet](projet.html)
 1. 27/03/2019 --  Soutenances (présentation des projets)
 
 ## TDs supplémentaires facultatifs (pour en savoir plus)
@@ -45,11 +45,7 @@ et n'ont pas été adaptés pour l'Année Spéciale.
 5. [Cookies & sessions]({{site.baseurl}}/assets/tut7-complement.html)
 
 
-## Instructions du projet
-
-En construction...
-<!-- [Instructions du projet](projet.html) -->
-
+## [Instructions du projet](projet.html)
 
 <!-- ## Chat -->
 

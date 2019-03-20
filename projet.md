@@ -6,15 +6,15 @@ layout: tutorial
 
 ## Sujet
 
-Vous devrez terminer et affiner le site de covoiturage que vous avez construit 
-tout au long des TD.
+Vous devrez compléter et affiner le site de covoiturage que vous avez construit 
+tout au long des séances de TD.
 
 ## Modalités
 
 Le projet est dimensionné pour des groupes de 2 étudiants.
 
 Le 27/03, date de présentation de votre projet, **le site devra être déployé sur `webinfo`** sous l'un
-de vos comptes. Les sources du site devront être accessible dans un fichier
+de vos comptes. Les sources du site devront être accessibles dans un fichier
 `sources.zip` à la racine de votre site.
 
 ### Ce que ce projet n'est pas :
@@ -51,29 +51,43 @@ techniques que vous avez apprises lors des TDs.
 
 Voici donc les critères les plus importants :
 
+### Fonctionnalités prioritaires
 * Utilisation de l'architecture MVC pour l'ensemble des pages du site (voir TD5),
 * Chaque page doit contenir une barre de navigation, que vous remplirez avec des liens vers les pages principales du site (voir TD5),
 * Toutes les requêtes SQL contenant au moins un paramètre doivent être préparées (voir TD3),
 * La page à la racine du site (index.php), doit rediriger vers la **liste des trajets** (voir TD5).
 
-* Pages requises du site
+* Pages requises du site :
 
     * **Voitures**
         * Liste des voitures (chaque voiture a un lien vers sa page de détail),
         * Détail d'une voiture,
         * Page de création d'une voiture.
 
+
     * **Trajets**
         * Liste des trajets (chaque trajet a un lien vers sa page de détail),
         * Détail d'une trajet : inclut notamment la liste des utilisateur du trajet (TD3).
 
-* *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC, c'est-à-dire passant par un routeur qui redirige l'utilisateur vers l'action d'un controleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
+* *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC, c'est-à-dire passant par un routeur qui redirige l'utilisateur vers l'action d'un contrôleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
 Le routeur prendra, en plus du paramètre GET `action`, un paramètre GET `controller`. Le routeur pourra diriger l'utilisateur sur la bonne page avec le code `$controller::$action();`. *Attention* : ce code n'est pas sécurisé !
 
-* Tous les exercices optionnels des TDs peuvent être ajoutés mais sont considérés comme secondaires, finissez en priorité tous les points précédents !
+### Fonctionnalités secondaires
+Les fonctionnalités ci-dessous sont considérées comme secondaires, finissez en priorité tous les points précédents !
 
+* Pages supplémentaires :
+    * *Utilisateurs*
+        * Liste des utilisateurs (chaque utilisateur a un lien vers sa page de détail),
+        * Détail d'un utilisateur (inclut notamment la liste des trajets d'un utilisateur, et la liste des trajets dont il est conducteur).
+f
+* Les exercices complémentaires des TDs en rapport avec le covoiturage (les exercices du type *Si le temps vous le permet...*) sont considérés comme des exercices secondaires. Par exemple, désinscrire un utilisateur d'un trajet (TD3) rentre dans cette catégorie.
+
+### Bonus
+Les TDs supplémentaires facultattifs (architecture MVC avancée, Authentification et validation par email) ne sont pas attendus pour ce projet et seraient donc considérés comme du bonus.
+
+### Modalités
 Il n'y a **pas** de rapport à écrire, ni de présentation à préparer. Vous devrez
-juste répondre à une série de questions sur votre code qui nous permettra
+juste répondre à une série de questions sur votre code qui permettra
 d'évaluer ce qui a été implémenté.
 
 L'ordre de passage des groupes sera tiré aléatoirement.
