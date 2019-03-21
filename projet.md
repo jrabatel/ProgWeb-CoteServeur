@@ -68,7 +68,7 @@ Voici donc les critères les plus importants :
 
     * **Trajets**
         * Liste des trajets (chaque trajet a un lien vers sa page de détail),
-        * Détail d'une trajet : inclut notamment la liste des utilisateur du trajet (TD3).
+        * Détail d'un trajet : inclut notamment la liste des utilisateur du trajet (TD3).
 
 * *Remarque* :  Chacune des pages du site doit s'intégrer dans l'architecture MVC comme pour le TD5, c'est-à-dire en utilisant un routeur qui redirige l'utilisateur vers l'action d'un contrôleur. Il vous faudra un contrôleur par type d'objet (par exemple, `ControllerVoiture`, `ControllerTrajet`).
 Le routeur prendra, en plus du paramètre GET `action`, un paramètre GET `controller`. Le routeur pourra diriger l'utilisateur sur la bonne page avec le code `$controller::$action();`. *Attention* : ce code n'est pas sécurisé !
@@ -82,7 +82,7 @@ Les fonctionnalités ci-dessous sont considérées comme secondaires, finissez e
         * Détail d'un utilisateur (inclut notamment la liste des trajets d'un utilisateur, et la liste des trajets dont il est conducteur).
         * Création d'un utilisateur.
 
-* Ajouter quelques exemples de gestions d'exceptions.
+* Ajouter quelques exemples de gestion des erreurs (TD2).
 
 * Les exercices complémentaires des TDs en rapport avec le covoiturage (les exercices du type *Et si le temps le permet...*) sont considérés comme des exercices secondaires. Par exemple, désinscrire un utilisateur d'un trajet (TD3) rentre dans cette catégorie.
 
@@ -95,3 +95,16 @@ juste répondre à une série de questions sur votre code qui permettra
 d'évaluer ce qui a été implémenté.
 
 L'ordre de passage des groupes sera tiré aléatoirement.
+
+Groupes et ordre de passage :
+1. FAURE, QUETIN
+1. BASSIGNANI, BECLE
+1. RAOUL, VICHET
+1. ALAUZET, REAMOT
+1. DAHMANI, DEIANA, MATTHEWS
+1. DIA, RUMMO
+1. MARTIN, ROCCI
+1. DUFOUR, LETOURMY
+1. LECORVAISIER, PANCHAUD
+
+
